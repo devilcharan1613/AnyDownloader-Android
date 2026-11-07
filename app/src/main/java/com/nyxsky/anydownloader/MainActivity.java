@@ -70,7 +70,8 @@ public class MainActivity extends Activity {
         TextView brand = new TextView(this);
         brand.setText(R.string.app_name);
         brand.setTextColor(Color.WHITE);
-        brand.setTextSize(18);
+        brand.setTextSize(15);
+        brand.setSingleLine(true);
         brand.setTypeface(null, Typeface.BOLD);
         brand.setPadding(dp(9), 0, dp(4), 0);
         bar.addView(brand, new LinearLayout.LayoutParams(0, -2, 1));
@@ -115,6 +116,9 @@ public class MainActivity extends Activity {
         Button button = new Button(this);
         button.setText(label);
         button.setTextSize(11);
+        button.setMinWidth(dp(58));
+        button.setMinHeight(dp(40));
+        button.setPadding(dp(7), 0, dp(7), 0);
         button.setAllCaps(false);
         button.setTextColor(Color.WHITE);
         return button;
