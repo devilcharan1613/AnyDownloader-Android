@@ -225,7 +225,7 @@ public class MainActivity extends Activity {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < name.length(); i++) {
             char ch = name.charAt(i);
-            boolean unsafe = ch == '/' || ch == '\\\\' || ch == ':' || ch == '*'
+            boolean unsafe = ch == '/' || ch == '\\' || ch == ':' || ch == '*'
                     || ch == '?' || ch == '"' || ch == '<' || ch == '>' || ch == '|'
                     || Character.isISOControl(ch);
             result.append(unsafe ? '_' : ch);
