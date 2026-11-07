@@ -25,6 +25,7 @@ checks = {
     "app name resource exists": "AnyDownloader" in strings.read_text(encoding="utf-8"),
     "trusted HTTPS host check": "TRUSTED_HOST.equalsIgnoreCase(uri.getHost())" in java,
     "main-frame WebView error handling": "request.isForMainFrame()" in java,
+    "WebResourceError callback import": "import android.webkit.WebResourceError;" in java,
     "HTTP error handling": "onReceivedHttpError" in java,
     "DownloadManager integration": "DownloadManager.Request" in java,
     "download filename sanitization": "Character.isISOControl(ch)" in java,
