@@ -18,7 +18,6 @@ import android.webkit.CookieManager;
 import android.webkit.DownloadListener;
 import android.webkit.URLUtil;
 import android.webkit.WebChromeClient;
-import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -222,7 +221,15 @@ public class MainActivity extends Activity {
 
     private String safeName(String name) {
         if (name == null || name.trim().isEmpty()) return "media-download";
-        String cleaned = name.replaceAll("[\\\\/\\\\\\\\:*?\"<>|\\\\p{Cntrl}]", "_").trim();
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < name.length(); i++) {
+            char ch = name.charAt(i);
+            boolean unsafe = ch == '/' || ch == '\\\\' || ch == ':' || ch == '*'
+                    || ch == '?' || ch == '"' || ch == '<' || ch == '>' || ch == '|'
+                    || Character.isISOControl(ch);
+            result.append(unsafe ? '_' : ch);
+        }
+        String cleaned = result.toString().trim();
         while (cleaned.startsWith(".")) cleaned = cleaned.substring(1);
         if (cleaned.isEmpty()) return "media-download";
         return cleaned.length() > 120 ? cleaned.substring(0, 120) : cleaned;
