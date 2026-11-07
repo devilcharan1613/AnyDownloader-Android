@@ -31,6 +31,8 @@ jobs:
         run: yes | sdkmanager --licenses
       - name: Install Android platform and build tools
         run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
+      - name: Run structural project checks
+        run: python3 scripts/verify_project.py
       - name: Run Android lint
         run: gradle :app:lintDebug --no-daemon
       - name: Build debug APK
