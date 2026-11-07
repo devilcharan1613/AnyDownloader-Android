@@ -5,6 +5,7 @@ import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
@@ -70,7 +71,7 @@ public class MainActivity extends Activity {
         brand.setText(R.string.app_name);
         brand.setTextColor(Color.WHITE);
         brand.setTextSize(18);
-        brand.setTypeface(null, 1);
+        brand.setTypeface(null, Typeface.BOLD);
         brand.setPadding(dp(9), 0, dp(4), 0);
         bar.addView(brand, new LinearLayout.LayoutParams(0, -2, 1));
 
